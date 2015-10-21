@@ -33,8 +33,11 @@ map <C-n> :NERDTreeToggle<CR>
 
 set ic "set ignore case sensitivity when searching"
 
-let g:ag_working_path_mode="r"
+"uncomment next line to make ag search from current project path instead of
+"CWD
+"let g:ag_working_path_mode="r"
 
+let g:ag_highlight = 1
 
 call plug#begin()
 Plug 'kien/ctrlp.vim'
