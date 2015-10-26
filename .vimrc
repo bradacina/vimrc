@@ -39,6 +39,10 @@ set ic "set ignore case sensitivity when searching"
 
 let g:ag_highlight = 1
 
+let g:typescript_indent_disable = 1
+autocmd QuickFixCmdPost [^l]* nested cwindow
+"autocmd QuickFixCmdPost    l* nested lwindow
+
 call plug#begin()
 Plug 'kien/ctrlp.vim'
 Plug 'jelera/vim-javascript-syntax'
@@ -50,4 +54,6 @@ Plug 'easymotion/vim-easymotion'
 Plug 'rking/ag.vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'scrooloose/syntastic'
+Plug 'fatih/vim-go'
+Plug 'Valloric/YouCompleteMe'
 call plug#end()
