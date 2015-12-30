@@ -9,12 +9,21 @@ set expandtab
 set autoindent
 
 set showbreak=>>>
-set nu
+set nu "line numbering
+set laststatus=2 "always show status bar
+set statusline+=%f "show relative path of file being edited always in the status bar
 syntax on
 set background=dark
 
 if $COLORTERM == 'gnome-terminal'
   set t_Co=256
+endif
+
+if $TERM == 'cygwin' "if running in conemu on windows
+  set term=xterm
+  set t_Co=256
+  let &t_AB="\e[48;5;%dm"
+  let &t_AF="\e[38;5;%dm"
 endif
 
 colorscheme xoria256
@@ -24,7 +33,7 @@ if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor
     
   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --hidden --nocolor -g ""'
+  let g:ctrlp_user_command = 'ag -l --hidden --nocolor -g "" %s'
 endif
 
 let g:ctrlp_working_path_mode = '0'
@@ -55,5 +64,6 @@ Plug 'rking/ag.vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'scrooloose/syntastic'
 Plug 'fatih/vim-go'
-Plug 'Valloric/YouCompleteMe'
+Plug 'ervandew/supertab'
+Plug 'bling/vim-airline'
 call plug#end()
