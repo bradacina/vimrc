@@ -19,6 +19,8 @@ endif
 
 colorscheme xoria256
 
+source $VIMRUNTIME/macros/matchit.vim
+
 if executable('ag')
   " Use Ag over Grep
   set grepprg=ag\ --nogroup\ --nocolor
@@ -42,6 +44,7 @@ let g:ag_highlight = 1
 let g:typescript_indent_disable = 1
 autocmd QuickFixCmdPost [^l]* nested cwindow
 "autocmd QuickFixCmdPost    l* nested lwindow
+let g:typescript_compile_by_tsconfig = 1
 
 call plug#begin()
 Plug 'kien/ctrlp.vim'
@@ -57,3 +60,9 @@ Plug 'scrooloose/syntastic'
 Plug 'fatih/vim-go'
 Plug 'Valloric/YouCompleteMe'
 call plug#end()
+
+let mapleader=" "
+nnoremap <leader>ty :YcmCompleter GetType<CR>
+nnoremap <leader>de :YcmCompleter GoToDefinition<CR>
+nnoremap <leader>do :YcmCompleter GetDoc<CR>
+nnoremap <leader>re :YcmCompleter GoToReferences<CR>
