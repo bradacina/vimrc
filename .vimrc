@@ -67,8 +67,9 @@ Plug 'rking/ag.vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'scrooloose/syntastic'
 Plug 'fatih/vim-go'
-Plug 'ervandew/supertab'
+Plug 'Valloric/YouCompleteMe'
 Plug 'bling/vim-airline'
+Plug 'jason0x43/vim-js-indent'
 call plug#end()
 
 let mapleader=" "
