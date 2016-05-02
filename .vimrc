@@ -56,6 +56,7 @@ autocmd QuickFixCmdPost [^l]* nested cwindow
 let g:typescript_compile_by_tsconfig = 1
 
 call plug#begin()
+Plug 'flazz/vim-colorschemes'
 Plug 'kien/ctrlp.vim'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'pangloss/vim-javascript'
@@ -72,8 +73,14 @@ Plug 'bling/vim-airline'
 Plug 'jason0x43/vim-js-indent'
 call plug#end()
 
+" YCM needs this if you built it with clang support
+let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+
 let mapleader=" "
 nnoremap <leader>ty :YcmCompleter GetType<CR>
 nnoremap <leader>de :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>do :YcmCompleter GetDoc<CR>
 nnoremap <leader>re :YcmCompleter GoToReferences<CR>
+
+set exrc
+set secure
